@@ -1,11 +1,13 @@
-# api documentation for  [rc (v1.2.0)](https://github.com/dominictarr/rc#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-rc.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-rc) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-rc.svg)](https://travis-ci.org/npmdoc/node-npmdoc-rc)
+# api documentation for  [rc (v1.2.1)](https://github.com/dominictarr/rc#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-rc.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-rc) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-rc.svg)](https://travis-ci.org/npmdoc/node-npmdoc-rc)
 #### hardwired configuration loader
 
 [![NPM](https://nodei.co/npm/rc.png?downloads=true)](https://www.npmjs.com/package/rc)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-rc/build/screen-capture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-rc_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-rc/build..beta..travis-ci.org/apidoc.html)
+[![apidoc](https://npmdoc.github.io/node-npmdoc-rc/build/screenCapture.buildNpmdoc.browser.%2Fhome%2Ftravis%2Fbuild%2Fnpmdoc%2Fnode-npmdoc-rc%2Ftmp%2Fbuild%2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-rc/build/apidoc.html)
 
-![package-listing](https://npmdoc.github.io/node-npmdoc-rc/build/screen-capture.npmPackageListing.svg)
+![npmPackageListing](https://npmdoc.github.io/node-npmdoc-rc/build/screenCapture.npmPackageListing.svg)
+
+![npmPackageDependencyTree](https://npmdoc.github.io/node-npmdoc-rc/build/screenCapture.npmPackageDependencyTree.svg)
 
 
 
@@ -36,10 +38,10 @@
     "devDependencies": {},
     "directories": {},
     "dist": {
-        "shasum": "c7de973b7b46297c041366b2fd3d2363b1697c66",
-        "tarball": "https://registry.npmjs.org/rc/-/rc-1.2.0.tgz"
+        "shasum": "2e03e8e42ee450b8cb3dce65be1bf8974e1dfd95",
+        "tarball": "https://registry.npmjs.org/rc/-/rc-1.2.1.tgz"
     },
-    "gitHead": "71d7d1524f7421c5357daac289961b49f039d19d",
+    "gitHead": "41251ff2bdc6a067dd3bf77efcdad57cae23b515",
     "homepage": "https://github.com/dominictarr/rc#readme",
     "keywords": [
         "config",
@@ -65,7 +67,7 @@
     "scripts": {
         "test": "set -e; node test/test.js; node test/ini.js; node test/nested-env-vars.js"
     },
-    "version": "1.2.0"
+    "version": "1.2.1"
 }
 ```
 
@@ -99,7 +101,7 @@ env = function (prefix, env) {
   var obj = {}
   var l = prefix.length
   for(var k in env) {
-    if(k.toLowerCase().indexOf(prefix) === 0) {
+    if(k.toLowerCase().indexOf(prefix.toLowerCase()) === 0) {
 
       var keypath = k.substring(l).split('__')
 
