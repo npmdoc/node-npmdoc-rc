@@ -51,7 +51,7 @@
 
         href="https://github.com/dominictarr/rc#readme"
 
-    >rc (v1.2.0)</a>
+    >rc (v1.2.1)</a>
 </h1>
 <h4>hardwired configuration loader</h4>
 <div class="apidocSectionDiv"><a
@@ -143,7 +143,7 @@
   var obj = {}
   var l = prefix.length
   for(var k in env) {
-    if(k.toLowerCase().indexOf(prefix) === 0) {
+    if(k.toLowerCase().indexOf(prefix.toLowerCase()) === 0) {
 
       var keypath = k.substring(l).split(&#x27;__&#x27;)
 
