@@ -63,6 +63,15 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.rc.rc">
+            function <span class="apidocSignatureSpan"></span>rc
+            <span class="apidocSignatureSpan">(name, defaults, argv, parse)</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">rc.</span>utils</span>
 
         </li>
@@ -122,6 +131,62 @@
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.rc" id="apidoc.module.rc">module rc</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.rc.rc" id="apidoc.element.rc.rc">
+        function <span class="apidocSignatureSpan"></span>rc
+        <span class="apidocSignatureSpan">(name, defaults, argv, parse)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">rc = function (name, defaults, argv, parse) {
+  if(&#x27;string&#x27; !== typeof name)
+    throw new Error(&#x27;rc(name): name *must* be string&#x27;)
+  if(!argv)
+    argv = require(&#x27;minimist&#x27;)(process.argv.slice(2))
+  defaults = (
+      &#x27;string&#x27; === typeof defaults
+    ? cc.json(defaults) : defaults
+    ) || {}
+
+  parse = parse || cc.parse
+
+  var env = cc.env(name + &#x27;_&#x27;)
+
+  var configs = [defaults]
+  var configFiles = []
+  function addConfigFile (file) {
+    if (configFiles.indexOf(file) &#x3e;= 0) return
+    var fileConfig = cc.file(file)
+    if (fileConfig) {
+      configs.push(parse(fileConfig))
+      configFiles.push(file)
+    }
+  }
+
+  // which files do we look at?
+  if (!win)
+   [join(etc, name, &#x27;config&#x27;),
+    join(etc, name + &#x27;rc&#x27;)].forEach(addConfigFile)
+  if (home)
+   [join(home, &#x27;.config&#x27;, name, &#x27;config&#x27;),
+    join(home, &#x27;.config&#x27;, name),
+    join(home, &#x27;.&#x27; + name, &#x27;config&#x27;),
+    join(home, &#x27;.&#x27; + name + &#x27;rc&#x27;)].forEach(addConfigFile)
+  addConfigFile(cc.find(&#x27;.&#x27;+name+&#x27;rc&#x27;))
+  if (env.config) addConfigFile(env.config)
+  if (argv.config) addConfigFile(argv.config)
+
+  return deepExtend.apply(null, configs.concat([
+    env,
+    argv,
+    configFiles.length ? {configs: configFiles, config: configFiles[configFiles.length - 1]} : undefined,
+  ]))
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 
 
