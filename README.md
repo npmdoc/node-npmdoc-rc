@@ -1,6 +1,6 @@
 # npmdoc-rc
 
-#### api documentation for  [rc (v1.2.1)](https://github.com/dominictarr/rc#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-rc.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-rc) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-rc.svg)](https://travis-ci.org/npmdoc/node-npmdoc-rc)
+#### basic api documentation for  [rc (v1.2.1)](https://github.com/dominictarr/rc#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-rc.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-rc) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-rc.svg)](https://travis-ci.org/npmdoc/node-npmdoc-rc)
 
 #### hardwired configuration loader
 
